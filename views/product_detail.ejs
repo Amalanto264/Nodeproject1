@@ -1,0 +1,26 @@
+
+<%- include('includes/head.ejs') %>
+<body>
+    <%- include('includes/navigation.ejs') %>
+
+    <main class="centered">
+        <h1><%= product.productName %></h1>
+        <hr>
+        <div>
+            <img src="<%= product.imageUrl%>" alt="<%= product.productName %>">
+        </div>
+        <h2><%= product.price %></h2>
+        <h2><%= product.description %></h2>
+        <div>
+            <a class ="btn" href="/admin/edit-product/<%= product._id %>">Edit</a>
+        
+            <form action="/admin/delete-product" method="post">
+                <input hidden type="text" name="id" value="<%=product._id%>">
+                <button type="submit" class="btn">Delete</button>
+            </form>
+
+        </div>
+    </main>
+</body>  
+<%- include('includes/end.ejs')%>  
+
